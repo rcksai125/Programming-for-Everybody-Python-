@@ -1,20 +1,22 @@
 largest = None
 smallest = None
 while True:
-    try: 
-    	num = raw_input("Enter a number: ")
-    	if num == "done" : break
-    	n = int(num)
-    	if largest < n :
-        	largest = n
-    	if smallest == None or smallest > n : smallest = n
-        
-    
+    inp = raw_input("Enter a number: ")
+    if inp == "done" : break
+    try:
+        num = float(inp)
     except:
-        print "Invalid input"
-    #print num
-    
-    
+       # print "Please enter a number as input or \'done\'"
+        print ("Invalid input")
+        continue
+    if smallest is None:
+        smallest = num 
+    if num > largest :
+        largest = num
+    elif num < smallest :
+        smallest = num
 
-print "Maximum is", largest
-print "Minimum is", smallest
+def done(largest,smallest):
+    print ("Maximum is", largest) 
+    print ("Minimum is", smallest)
+done(int(largest),int(smallest))
